@@ -7,9 +7,12 @@ abstr_emp::~abstr_emp() { }
 
 void abstr_emp::ShowAll(ostream& os) const
 {
-    os << left << setw(20) << "FName:" << setw(20) << fname << endl;
-    os << left << setw(20) << "LName:" << setw(20) << lname << endl;
-    os << left << setw(20) << "Job:"   << setw(20) << job << endl;
+//    os << left << setw(20) << "FName:" << setw(20) << fname << endl;
+//    os << left << setw(20) << "LName:" << setw(20) << lname << endl;
+//    os << left << setw(20) << "Job:"   << setw(20) << job << endl;
+    os << fname << endl;
+    os << lname << endl;
+    os << job << endl;
 }
 
 void abstr_emp::SetAll(istream& is)
@@ -33,7 +36,8 @@ ostream& operator<<(ostream& os, const abstr_emp& ae)
 void manager::ShowAll(ostream& os) const
 {
     abstr_emp::ShowAll(os);
-    os << left << setw(20) << "In charge of:" << setw(20) << inchargeof << endl;
+//    os << left << setw(20) << "In charge of:" << setw(20) << inchargeof << endl;
+    os << inchargeof << endl;
 }
 
 void manager::SetAll(istream& is)
@@ -47,7 +51,8 @@ void manager::SetAll(istream& is)
 void fink::ShowAll(ostream& os) const
 {
     abstr_emp::ShowAll(os);
-    os << left << setw(20) << "Reports to:" << setw(20) << reportsto << endl;
+//    os << left << setw(20) << "Reports to:" << setw(20) << reportsto << endl;
+    os << reportsto << endl;
 }
 
 void fink::SetAll(istream& is)
@@ -60,8 +65,10 @@ void fink::SetAll(istream& is)
 void highfink::ShowAll(ostream& os) const
 {
     abstr_emp::ShowAll(os);
-    os << left << setw(20) << "Reports to:" << setw(20) << fink::ReportsTo() << endl;
-    os << left << setw(20) << "In charge of:" << setw(20) << manager::inChargeOf() << endl;
+//    os << left << setw(20) << "Reports to:" << setw(20) << fink::ReportsTo() << endl;
+//    os << left << setw(20) << "In charge of:" << setw(20) << manager::inChargeOf() << endl;
+    os << fink::ReportsTo() << endl;
+    os << manager::inChargeOf() << endl;
 }
 
 void highfink::SetAll(istream& is)
